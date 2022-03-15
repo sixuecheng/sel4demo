@@ -329,7 +329,7 @@ ptr_writer_template = \
     %(assert)s((((~0x%(mask)x%(suf)s %(r_shift_op)s %(shift)d) | 0x%(high_bits)x) & v%(base)d) == ((%(sign_extend)d && (v%(base)d & (1%(suf)s << (%(extend_bit)d)))) ? 0x%(high_bits)x : 0));
     %(block)s_ptr->words[%(index)d] &= ~0x%(mask)x%(suf)s;
     %(block)s_ptr->words[%(index)d] |= (v%(base)d %(w_shift_op)s """ \
-    """%(shift)d) & 0x%(mask)x;
+    """%(shift)d) & 0x%(mask)x%(suf)s;
 }"""
 
 union_generator_template = \
