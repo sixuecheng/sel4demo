@@ -12,7 +12,7 @@
 #include <string.h>
 #include <kernel/cspace.h>
 
-#define MAX_UL          0xffffffff
+#define MAX_UL          0xffffffffU
 #define PT_INDEX(vptr)  ((vptr >> PAGE_BITS) & MASK(PT_INDEX_BITS))
 #define PD_INDEX(vptr)  (vptr >> (PAGE_BITS + PT_INDEX_BITS))
 

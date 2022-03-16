@@ -28,7 +28,7 @@ static inline word_t sanitiseRegister(register_t reg, word_t v, bool_t archInfo)
         }
 #endif /* CONFIG_ARM_HYPERVISOR_SUPPORT */
 
-        return (v & 0xf8000000) | CPSR_USER;
+        return (v & 0xf8000000U) | CPSR_USER;
     } else {
         return v;
     }

@@ -30,8 +30,8 @@ typedef struct lookupIOPTSlot_ret {
 } lookupIOPTSlot_ret_t;
 
 
-#define IOPDE_VALID_MASK    0xe0000000
-#define IOPTE_EMPTY_MASK    0xe0000000
+#define IOPDE_VALID_MASK    0xe0000000U
+#define IOPTE_EMPTY_MASK    0xe0000000U
 
 static bool_t isIOPDEValid(iopde_t *iopde)
 {

@@ -164,7 +164,7 @@ static inline void writeTTBR0Ptr(paddr_t addr)
     /* Mask supplied address (retain top 19 bits).  Set the lookup cache bits:
      * outer write-back cacheable, no allocate on write, inner non-cacheable.
      */
-    writeTTBR0((addr & 0xffffe000) | 0x18);
+    writeTTBR0((addr & 0xffffe000U) | 0x18);
 }
 
 static inline word_t readTTBR1(void)

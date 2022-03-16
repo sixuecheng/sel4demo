@@ -11,7 +11,7 @@
 
 #define PAGE_BITS seL4_PageBits
 
-#define PPTR_VECTOR_TABLE 0xffff0000
+#define PPTR_VECTOR_TABLE 0xffff0000U
 
 /* Processor ID used to check if errata work arounds need to be performed */
 #define ARM1136_R0PX 0x4107b360
