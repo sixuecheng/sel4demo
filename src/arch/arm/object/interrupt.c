@@ -81,7 +81,7 @@ exception_t Arch_decodeIRQControlInvocation(word_t invLabel, word_t length,
         word_t irq_w = getSyscallArg(0, buffer);
         bool_t trigger = !!getSyscallArg(1, buffer);
         word_t index = getSyscallArg(2, buffer);
-        word_t depth = getSyscallArg(3, buffer) & 0xfful;
+        word_t depth = getSyscallArg(3, buffer) & 0xffUL;
         seL4_Word target = getSyscallArg(4, buffer);
         cap_t cnodeCap = current_extra_caps.excaprefs[0]->cap;
         exception_t status = Arch_checkIRQ(irq_w);

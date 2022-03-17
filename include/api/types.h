@@ -128,7 +128,7 @@ extern struct debug_syscall_error current_debug_error;
     do {                                                                     \
         out_error(ANSI_DARK "<<" ANSI_GREEN "seL4(CPU %lu)" ANSI_DARK        \
                 " [%s/%d T%p \"%s\" @%lx]: " M ">>" ANSI_RESET "\n",         \
-                SMP_TERNARY(getCurrentCPUIndex(), 0lu),                      \
+                SMP_TERNARY(getCurrentCPUIndex(), 0UL),                      \
                 __func__, __LINE__, NODE_STATE(ksCurThread),                 \
                 THREAD_NAME,                                                 \
                 (word_t)getRestartPC(NODE_STATE(ksCurThread)),               \

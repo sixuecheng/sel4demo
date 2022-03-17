@@ -18,16 +18,16 @@
 #define STRINGIFY(a) _STRINGIFY(a)
 
 /* time constants */
-#define MS_IN_S     1000llu
-#define US_IN_MS    1000llu
-#define HZ_IN_KHZ   1000llu
-#define KHZ_IN_MHZ  1000llu
-#define HZ_IN_MHZ   1000000llu
+#define MS_IN_S     1000ULL
+#define US_IN_MS    1000ULL
+#define HZ_IN_KHZ   1000ULL
+#define KHZ_IN_MHZ  1000ULL
+#define HZ_IN_MHZ   1000000ULL
 
 #ifndef __ASSEMBLER__
 
 #define NULL ((void *)0)
-#define BIT(n) (1ul << (n))
+#define BIT(n) (1UL << (n))
 #define UL_CONST(x) PASTE(x, ul)
 
 #define PACKED       __attribute__((packed))

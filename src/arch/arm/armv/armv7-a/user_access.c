@@ -15,8 +15,8 @@
 #define CNTKCTL_PL0VTEN  BIT(8)
 #define CNTKCTL_PL0PTEN  BIT(9)
 
-#define ID_DFR0_PMU_MASK (0xful << 28)
-#define ID_DFR0_PMU_NONE (0xful << 28)
+#define ID_DFR0_PMU_MASK (0xfUL << 28)
+#define ID_DFR0_PMU_NONE (0xfUL << 28)
 
 #define ID_PFR1_GENERIC_TIMER BIT(16)
 

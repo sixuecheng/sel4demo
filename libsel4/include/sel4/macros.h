@@ -66,4 +66,4 @@
 #define SEL4_FORCE_LONG_ENUM(type) \
     _enum_pad_ ## type = ((1ULL << ((sizeof(long)*8) - 1)) - 1)
 
-#define LIBSEL4_BIT(n)  (1ul<<(n))
+#define LIBSEL4_BIT(n)  (1UL<<(n))

@@ -133,7 +133,7 @@ exception_t decodeUntypedInvocation(word_t invLabel, word_t length, cte_t *slot,
     }
 
     /* Is the region where the user wants to put the caps valid? */
-    nodeSize = 1ul << cap_cnode_cap_get_capCNodeRadix(nodeCap);
+    nodeSize = 1UL << cap_cnode_cap_get_capCNodeRadix(nodeCap);
     if (nodeOffset > nodeSize - 1) {
         userError("Untyped Retype: Destination node offset #%d too large.",
                   (int)nodeOffset);
@@ -205,7 +205,7 @@ exception_t decodeUntypedInvocation(word_t invLabel, word_t length, cte_t *slot,
         userError("Untyped Retype: Insufficient memory "
                   "(%lu * %lu bytes needed, %lu bytes available).",
                   (word_t)nodeWindow,
-                  (objectSize >= wordBits ? -1 : (1ul << objectSize)),
+                  (objectSize >= wordBits ? -1 : (1UL << objectSize)),
                   (word_t)(untypedFreeBytes));
         current_syscall_error.type = seL4_NotEnoughMemory;
         current_syscall_error.memoryLeft = untypedFreeBytes;
