@@ -56,10 +56,10 @@ if(KernelPlatImx6)
     if(KernelIsMCS)
         list(APPEND KernelDTSList "src/plat/imx6/mcs-overlay-imx6.dts")
         set(timer_file drivers/timer/arm_global.h)
-        set(timer_freq 498000000llu)
+        set(timer_freq 498000000ULL)
     else()
         set(timer_file drivers/timer/arm_priv.h)
-        set(timer_freq 498000000llu)
+        set(timer_freq 498000000ULL)
     endif()
 
     declare_default_headers(
@@ -68,9 +68,9 @@ if(KernelPlatImx6)
         INTERRUPT_CONTROLLER arch/machine/gic_v2.h
         NUM_PPI 32
         TIMER ${timer_file}
-        CLK_SHIFT 41llu
-        CLK_MAGIC 4415709349llu
-        KERNEL_WCET 10llu
+        CLK_SHIFT 41ULL
+        CLK_MAGIC 4415709349ULL
+        KERNEL_WCET 10ULL
         TIMER_PRECISION 2u
     )
 endif()
