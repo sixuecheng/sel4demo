@@ -17,7 +17,7 @@
 #ifdef ENABLE_SMP_SUPPORT
 
 /* CLH lock is FIFO lock for machines with coherent caches (coherent-FIFO lock).
- * See ftp://ftp.cs.washington.edu/tr/1993/02/UW-CSE-93-02-02.pdf */
+ * See ftp:%%ftp.cs.washington.edu/tr/1993/02/UW-CSE-93-02-02.pdf */
 
 typedef enum {
     CLHState_Granted = 0,
