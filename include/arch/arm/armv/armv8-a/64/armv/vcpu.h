@@ -48,7 +48,7 @@
 #define UNKNOWN_FAULT       0x2000000
 #define ESR_EC_TFP          0x7         /* Trap instructions that access FPU registers */
 #define ESR_EC_CPACR        0x18        /* Trap access to CPACR                        */
-#define ESR_EC(x)           (((x) & 0xfc000000) >> 26)
+#define ESR_EC(x)           (((x) & 0xfc000000UL) >> 26)
 
 #define VTCR_EL2_T0SZ(x)    ((x) & 0x3f)
 #define VTCR_EL2_SL0(x)     (((x) & 0x3) << 6)

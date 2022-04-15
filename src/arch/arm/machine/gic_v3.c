@@ -9,7 +9,7 @@
 #include <types.h>
 #include <arch/machine/gic_v3.h>
 
-#define IRQ_SET_ALL 0xffffffff
+#define IRQ_SET_ALL 0xffffffffU
 
 #define RDIST_BANK_SZ 0x00010000
 /* One GICR region and one GICR_SGI region */

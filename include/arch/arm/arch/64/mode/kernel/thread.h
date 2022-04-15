@@ -19,7 +19,7 @@ static inline word_t CONST sanitiseRegister(register_t reg, word_t v, bool_t arc
                 break;
             }
         }
-        return (v & 0xf0000000) | PSTATE_USER;
+        return (v & 0xf0000000UL) | PSTATE_USER;
     } else {
         return v;
     }
