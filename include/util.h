@@ -70,7 +70,9 @@ void __builtin_unreachable(void);
 #endif
 
 /* need that for compiling with c99 instead of gnu99 */
+#ifndef asm
 #define asm __asm__
+#endif
 
 /* Evaluate a Kconfig-provided configuration setting at compile-time. */
 #define config_set(macro) _is_set_(macro)
