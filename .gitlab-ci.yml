@@ -28,7 +28,7 @@ variables:
   file_name: ${branch_name}_${CI_PIPELINE_ID}
   code_url: ${baseWork}/${file_name}
   
-init_repo-job:       # This job runs in the build stage,   which runs   f irst.
+init_repo-job:       # This job runs in the build stage,   which runs    f irst.
   stage: init_repo
   tags: 
     - test-tag
