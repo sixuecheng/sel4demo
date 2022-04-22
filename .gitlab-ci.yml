@@ -43,7 +43,7 @@ init_repo-job:       # This job runs in the build stage,  which runs    f irst.
     - echo commitid=$commitid >> ../test.txt
     - echo commitid:$commitid >> ../commitid.txt
 
-build-job:       # This job runs in the build stage,   which runs   f irst.
+build-job:       # This job runs in the build stage,   which runs   frst.
   stage: build
   tags: 
     - test-tag
