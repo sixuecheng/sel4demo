@@ -49,4 +49,4 @@ build-job:       # This job runs in the build stage,   which runs   f irst.
     - test-tag
   script:
     - cd ${baseWork} 
-    - sudo docker run --name build_${file_name}_aarch32_job --rm -v ${code_url}:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && mkdir ia32_build && cd ia32_build && ../init-build.sh -DPLATFORM=ia32 -DRELEASE=TRUE -DSIMULATION=TRUE && /usr/bin/ninja && ./simulate"
+    - sudo docker run --name build_${file_name}_aarch32_job --rm -v ${code_url}:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && mkdir ia32_build && cd ia32_build && ../init-build.sh -DPLATFORM=ia32 -DRELEASE=TRUE -DSIMULATION=TRUE && /usr/bin/ninja && ./simulate &>test.log &"
