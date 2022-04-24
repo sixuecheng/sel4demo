@@ -36,7 +36,7 @@ init_repo-job:       # This job runs in the build  stage,  which runs  f irst.
     - cd ${baseWork} 
     - mkdir ${file_name}
     - cp -r sel4test ${file_name}
-    - cp -r sel4bench ${file_name}
+    # - cp -r sel4bench ${file_name}
     - cd ${file_name}
     - git clone -b develop  ${git_url} kernel
     - cd  kernel && commitid=`git rev-parse --short HEAD` 
@@ -44,7 +44,7 @@ init_repo-job:       # This job runs in the build  stage,  which runs  f irst.
     - echo commitid:$commitid >> ../commitid.txt
     - cd ${code_url}
     - cp -r kernel sel4test
-    - cp -r kernel sel4bench
+    # - cp -r kernel sel4bench
 
 build-sel4test-job:       # This job runs in the build stage,   which runs  frst.
   stage: build
