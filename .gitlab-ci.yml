@@ -16,6 +16,7 @@
 stages:
   - init_repo          # List of stages for jobs, and their order of  execution
   - build
+  - test
 #   - cov-analysis
 #   - createJson
 #   - build-l4v
@@ -45,19 +46,27 @@ init_repo-job:       # This job runs in the build stage,  which runs    f irst.
     - cp -r kernel sel4test
     - cp -r kernel sel4bench
 
-# build-sel4test-job:       # This job runs in the build stage,   which runs  frst.
-#   stage: build
-#   tags: 
-#     - test-tag
-#   script:
-#     - cd ${baseWork}
-#     - sudo docker run --name build_${file_name}_sel4test_job --rm -v ${code_url}/sel4test:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && mkdir ia32_build && cd ia32_build && ../init-build.sh -DPLATFORM=ia32 -DRELEASE=TRUE -DSIMULATION=TRUE && /usr/bin/ninja"
-
-build-sel4bench-job:       # This job runs in the build stage,   which runs  frst.
+build-sel4test-job:       # This job runs in the build stage,   which runs  frst.
   stage: build
   tags: 
     - test-tag
   script:
-    - cd ${baseWork} 
-    - sudo docker run --name build_${file_name}_sel4bench_job --rm -v ${code_url}/sel4bench:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && mkdir build && cd build && ../init-build.sh -DPLATFORM=sabre -DHARDWARE=TRUE -DAARCH32=TRUE -DRELEASE=TRUE -DFAULT=TRUE -DFASTPATH=TRUE && /usr/bin/ninja"
+    - cd ${baseWork}
+    - sudo docker run --name build_${file_name}_sel4test_job --rm -v ${code_url}/sel4test:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && mkdir ia32_build && cd ia32_build && ../init-build.sh -DPLATFORM=ia32 -DRELEASE=TRUE -DSIMULATION=TRUE && /usr/bin/ninja"
+
+# build-sel4bench-job:       # This job runs in the build stage,   which runs  frst.
+#   stage: build
+#   tags: 
+#     - test-tag
+#   script:
+#     - cd ${baseWork} 
+#     - sudo docker run --name build_${file_name}_sel4bench_job --rm -v ${code_url}/sel4bench:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && mkdir build && cd build && ../init-build.sh -DPLATFORM=sabre -DHARDWARE=TRUE -DAARCH32=TRUE -DRELEASE=TRUE -DFAULT=TRUE -DFASTPATH=TRUE && /usr/bin/ninja"
+
+test-sel4test-job:       # This job runs in the build stage,   which runs  frst.
+  stage: test
+  tags: 
+    - test-tag
+  script:
+    - cd ${baseWork}
+    - sudo docker run --name test_${file_name}_sel4test_job --rm -v ${code_url}/sel4test:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home/ia32_build &&  ./simulate >> ../test.log"
 
