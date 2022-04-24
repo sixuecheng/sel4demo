@@ -28,7 +28,7 @@ variables:
   file_name: ${branch_name}_${CI_PIPELINE_ID}
   code_url: ${baseWork}/${file_name}
   
-init_repo-job:       # This job runs in the build stage,  which runs  f irst.
+init_repo-job:       # This job runs in the build  stage,  which runs  f irst.
   stage: init_repo
   tags: 
     - test-tag
@@ -69,4 +69,7 @@ test-sel4test-job:       # This job runs in the build stage, which runs  frst.
   script:
     - cd ${baseWork}
     - sudo docker run --name test_${file_name}_sel4test_job --rm -v ${code_url}/sel4test:/home trustworthysystems/sel4:latest /bin/bash -c "cd /home && bash ./test.sh"
+  needs:
+    - build-sel4test-job          
+
 
