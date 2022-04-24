@@ -24,7 +24,6 @@ variables:
   branch_name: develop
   baseWork: /home/gitlab-runner
   git_url: git@gitlab.com:xcalsecureos/sel4.git
-#   l4v_url: http://10.64.29.53/mao/l4v.git
   file_name: ${branch_name}_${CI_PIPELINE_ID}
   code_url: ${baseWork}/${file_name}
   
@@ -36,12 +35,14 @@ init_repo-job:       # This job runs in the build stage,  which runs    f irst.
     - cd ${baseWork} 
     - mkdir ${file_name}
     - cp -r sel4test ${file_name}
-    # - cp -r sel4test/.repo  ${file_name}
-    # - cd ${file_name}
-    # - git clone -b develop  ${git_url} kernel
-    # - cd  kernel && commitid=`git rev-parse --short HEAD` 
-    # - echo commitid=$commitid >> ../test.txt
-    # - echo commitid:$commitid >> ../commitid.txt
+    - cp -r sel4bench ${file_name}
+    - cd ${file_name}
+    - git clone -b develop  ${git_url} kernel
+    - cd  kernel && commitid=`git rev-parse --short HEAD` 
+    - echo commitid=$commitid >> ../test.txt
+    - echo commitid:$commitid >> ../commitid.txt
+    - cp -r kernel sel4test
+    - cp -r kernel sel4bench
 
 # build-sel4test-job:       # This job runs in the build stage,   which runs  frst.
 #   stage: build
