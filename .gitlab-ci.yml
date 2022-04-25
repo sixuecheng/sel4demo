@@ -46,7 +46,7 @@ init_repo-job:       # This job runs in the build  stage,  which runs  f irst.
     - cp -r kernel sel4test
     # - cp -r kernel sel4bench
 
-build-sel4test-job:       # This job runs in the build stage,   which runs  frst.
+build-sel4test-job:       # This job runs in the build stage,    which runs  frst.
   stage: build
   tags: 
     - test-tag
